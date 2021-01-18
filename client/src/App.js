@@ -21,7 +21,24 @@ const App = () => {
         }else {
             setOrderItems([...orderItems, {...product, qty:1}])
         }
-    }
+    };
+
+    const onRemove = (product) => {
+        const exist = orderItems.find((x) => x.id === product.id);
+        if(exist.qty === 1) {
+            setOrderItems(orderItems.filter((x) => x.id !== product.id));
+
+        } else {
+            setOrderItems(orderItems.map((x) => 
+            x.id === product.id ? {...exist, qty: exist.qty - 1} : x
+
+        ));
+
+        }
+        
+        
+        
+    };
 
     
 
@@ -55,6 +72,7 @@ const App = () => {
             </ProductList>
             <OrderSummary 
                 onAdd={onAdd}
+                onRemove={onRemove}
                 orderItems={orderItems}
                 >   
             </OrderSummary>

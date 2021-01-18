@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 const OrderSummary = (props) => {
     
-const {orderItems, onAdd, onRemove, } = props;
+const {orderItems, onAdd, onRemove } = props;
+
+const itemsPrice = orderItems.reduce((a,c) => a + c.price * c.qty, 0);
 
     
 
@@ -29,23 +31,20 @@ const {orderItems, onAdd, onRemove, } = props;
                         </div> 
                         <div>
                             {item.qty} x {item.price}
-                        </div>                       
+                        </div>   
+                        
+                                         
                    </div>
-                                
-                                
-                            
-                        
-                        // <div>
-                        //     
-                        //     {/* <div>
-                        //         {item.qty} x {item.price.toFixed(2)}
-                        //     </div> */}
 
-                        
-                        // <TotalButton>{`PAY ${props.price || 0} CAD`}</TotalButton>
 
-                    // </div>
+                    
                 ))}
+                {orderItems.length !== 0 && (
+                    <TotalButton>{`PAY ${itemsPrice || 0} CAD`}</TotalButton>
+
+                )}
+                
+
             </div>
             
 
