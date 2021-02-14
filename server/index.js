@@ -4,8 +4,26 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import productsRoute from './routes/products.js';
+//import Stripe from 'stripe';
 
+
+// initialize express
 const app = express();
+
+// create a paymentIntent with the order amount and currency
+// const paymentIntent = await Stripe.payment.create({
+//     amount: calculateOrderAmount(items),
+//     currency: "cad"
+// });
+
+// res.send({
+//     clientSecret: paymentIntent.client_secret
+// });
+
+app.get('secret', async(req, res) => {
+    const intent = // fetch or create the paymentInent
+    res.json({client_secret: intent.client_secret});
+});
 
 app.use('/products' , productsRoute);
 

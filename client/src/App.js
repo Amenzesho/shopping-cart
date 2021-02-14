@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import Products from './components/Products/Products';
-//import Search from './components/Search/Search';
 import styled from 'styled-components';
 import OrderSummary from './Pages/OrderSummary';
 import './App.css';
-//const buttonText = "ADD TO CART";
+import Layout from './Pages/Layout';
+
+
 
 
 const App = () => {
@@ -62,6 +63,7 @@ const App = () => {
 
     };
 
+    
 
     return (  
         <div className="app">
@@ -76,6 +78,7 @@ const App = () => {
                 orderItems={orderItems}
                 >   
             </OrderSummary>
+            <Layout></Layout>
                 
             
             

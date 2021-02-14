@@ -43,6 +43,7 @@ const itemsPrice = orderItems.reduce((a,c) => a + c.price * c.qty, 0);
                     <TotalButton>{`PAY ${itemsPrice || 0} CAD`}</TotalButton>
 
                 )}
+                <button type="button" role="link">Go to Checkout</button>
                 
 
             </div>
