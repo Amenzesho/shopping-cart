@@ -1,9 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Products from './components/Products/Products';
 import styled from 'styled-components';
-import OrderSummary from './Pages/OrderSummary';
+//import OrderSummary from './Pages/OrderSummary';
 import './App.css';
 import Layout from './Pages/Layout';
+import HeaderNav from './components/Header/Header';
+import Blog from './Pages/Blog/Blog';
+import Brand from './Pages/Brand/Brand';
+import Cart from './Pages/Cart/Cart';
+import Editorials from './Pages/Editorials/Editorials';
+import Clothing from './Pages/Clothing/Clothing';
+import {BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
+
 
 
 
@@ -66,27 +74,37 @@ const App = () => {
     
 
     return (  
+    <Router>     
         <div className="app">
+            <HeaderNav />
+            <hr></hr>
+            <Switch>
+            <Route path="/" exact cpmponent={App} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/brand" component={Brand} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/editorials" component={Editorials} />
+            <Route path="/clothing" component={Clothing} />
+            <Route path="/layout"  component={Layout} />
+
+            </Switch>
+            
             <ProductList >
                 {products ? getProducts(): <div></div>}
-               
-
             </ProductList>
-            <OrderSummary 
+            {/* <Cart 
                 onAdd={onAdd}
                 onRemove={onRemove}
                 orderItems={orderItems}
                 >   
-            </OrderSummary>
-            <Layout></Layout>
-                
-            
-            
-
-            
+            </Cart> */}
+            <Layout></Layout>      
         </div>
+    </Router>
       
     );
+
+        
 }
  
 export default App;
