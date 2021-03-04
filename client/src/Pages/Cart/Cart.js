@@ -1,6 +1,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+//import Layout from '../Layout';
 
 
 const Cart = ({orderItems, onAdd, onRemove}) => {
@@ -47,7 +49,9 @@ const itemsPrice = orderItems.reduce((a,c) => a + c.price * c.qty, 0);
                     <TotalButton>{`PAY ${itemsPrice || 0} CAD`}</TotalButton>
 
                 )}
-                <button type="button" role="link">Go to Checkout</button>
+                <button >
+                    <Link to="/layout" >Go to Checkout</Link>
+                </button>
                 
 
             </div>

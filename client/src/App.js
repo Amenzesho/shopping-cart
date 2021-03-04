@@ -79,26 +79,22 @@ const App = () => {
             <HeaderNav />
             <hr></hr>
             <Switch>
-            <Route path="/" exact cpmponent={App} />
+            <Route path="/" exact render={() => <Clothing getProducts={getProducts} products={products} />} />
             <Route path="/blog" component={Blog} />
             <Route path="/brand" component={Brand} />
-            <Route path="/cart" component={Cart} />
+            <Route path="/cart" render={() => <Cart orderItems={orderItems} onAdd={onAdd} onRemove={onRemove}/> } />
             <Route path="/editorials" component={Editorials} />
-            <Route path="/clothing" component={Clothing} />
             <Route path="/layout"  component={Layout} />
 
             </Switch>
             
-            <ProductList >
-                {products ? getProducts(): <div></div>}
-            </ProductList>
             {/* <Cart 
                 onAdd={onAdd}
                 onRemove={onRemove}
                 orderItems={orderItems}
                 >   
             </Cart> */}
-            <Layout></Layout>      
+            {/* <Layout></Layout>       */}
         </div>
     </Router>
       
